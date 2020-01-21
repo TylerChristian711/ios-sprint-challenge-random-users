@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User: Codable {
+struct User:  Codable, Hashable {
     let name: Name
     let email: String
     let phone: String
@@ -20,40 +20,78 @@ struct User: Codable {
         case phone
         case picture
     }
-}
-
-struct Name: Codable {
-    let title: String
-    let firstName: String
-    let lastName: String
     
-    enum CodingKeys: String, CodingKey {
+    init(from decoder:Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let email = try container.decode(String.self, forKey: .email)
+        let phone = try container.decode(String.self, forKey: .phone)
+        let name = try container.decode(Name.self, forKey: .name)
+        let picture = try container.decode(Picture.self, forKey: .picture)
+        
+        
+        
+        self.email = email
+        self.phone = phone
+        self.name = name
+        self.picture = picture
+        
+        
+        
+        
+    }
+    
+    
+}
+struct Name:  Codable, Hashable {
+    let title: String
+    let first: String
+    let last: String
+    
+    enum NameKeys: String, CodingKey {
         case title
-        case firstName
-        case lastName
+        case first
+        case last
     }
 }
-
-struct Picture: Codable {
+struct Picture: Codable, Hashable {
     let large: String
     let medium: String
     let thumbnail: String
     
-    enum CodingKeys: String, CodingKey {
+    enum PictureKeys: String, CodingKey {
         case large
         case medium
         case thumbnail
     }
 }
+//struct UserInfo: Codable {
+//    let seed: String
+//    let results: Int
+//    let page: Int
+//    let version: String
+//}
 
-struct UserInfo: Codable {
-    let seed: String
-    let results: Int
-    let page: Int
-    let version: String
-}
 
-struct UserResults: Codable {
+struct Results: Codable {
     let results: [User]
-    let info: UserInfo
+    
+    init() {
+        self.results = []
+    }
+    
+    enum ResultsKeys: String, CodingKey {
+        case results
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ResultsKeys.self)
+        var userContainer = try container.nestedUnkeyedContainer(forKey: .results)
+        var placeholder = [User]()
+        while !userContainer.isAtEnd {
+            let user = try userContainer.decode(User.self)
+            placeholder.append(user)
+        }
+        self.results = placeholder
+    }
 }
