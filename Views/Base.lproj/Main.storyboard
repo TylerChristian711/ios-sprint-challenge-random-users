@@ -28,7 +28,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="107" height="65"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KR2-Q2-M9B">
-                                            <rect key="frame" x="56" y="68" width="203" height="21"/>
+                                            <rect key="frame" x="56" y="68" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -38,7 +38,6 @@
                                         <constraint firstItem="58U-fG-jzJ" firstAttribute="leading" secondItem="TIc-6M-kIy" secondAttribute="leading" id="3vy-QN-qyJ"/>
                                         <constraint firstItem="58U-fG-jzJ" firstAttribute="top" secondItem="TIc-6M-kIy" secondAttribute="top" id="ADW-33-G6i"/>
                                         <constraint firstItem="KR2-Q2-M9B" firstAttribute="top" secondItem="58U-fG-jzJ" secondAttribute="bottom" constant="3" id="DQo-3o-oCe"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="KR2-Q2-M9B" secondAttribute="trailing" constant="100" id="FE0-c9-0FT"/>
                                         <constraint firstAttribute="trailing" secondItem="58U-fG-jzJ" secondAttribute="trailing" constant="268" id="LDo-zH-I0v"/>
                                         <constraint firstItem="KR2-Q2-M9B" firstAttribute="leading" secondItem="TIc-6M-kIy" secondAttribute="leadingMargin" constant="40" id="coP-Ku-B4j"/>
                                         <constraint firstItem="KR2-Q2-M9B" firstAttribute="bottom" secondItem="TIc-6M-kIy" secondAttribute="bottomMargin" id="vxN-ge-QoD"/>

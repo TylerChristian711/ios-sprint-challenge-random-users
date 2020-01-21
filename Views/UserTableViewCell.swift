@@ -29,7 +29,7 @@ class UserTableViewCell: UITableViewCell {
     
     func updateViews() {
         guard let user = user else { return }
-        nameLabel.text =  user.name.first
+        nameLabel.text = "\(user.name.title) \(user.name.first) \(user.name.last)"
     }
 
 }

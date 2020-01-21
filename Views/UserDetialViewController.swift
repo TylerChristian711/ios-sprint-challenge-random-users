@@ -34,7 +34,7 @@ class UserDetialViewController: UIViewController {
             largeUserImage.image = UIImage(data: imgData)
         }
         titleLabel.text = user.name.title
-        nameLabel.text =  user.name.first 
+        nameLabel.text =  user.name.first + user.name.last
         phoneLabel.text = user.phone
         emailLabel.text = user.email
         
